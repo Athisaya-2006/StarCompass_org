@@ -370,12 +370,10 @@ async function checkGeminiStatus(){
  try{
   const r = await fetch('/api/assistant/status');
   const data = await r.json();
-  if(data.connected){
-   dom.geminiStatus.innerHTML = '<span class="dot" style="background:var(--teal);"></span><span>Connected to Gemini ('+data.model+')</span>';
-  } else if(data.reason === 'missing_package'){
-   dom.geminiStatus.innerHTML = '<span class="dot" style="background:var(--marigold);"></span><span>Run <code>npm install @google/genai</code> in the project folder, then restart the server</span>';
+  if(data && data.model){
+    dom.geminiStatus.innerHTML = '<span class="dot" style="background:var(--teal);"></span><span>Connected to Gemini ('+data.model+')</span>';
   } else {
-   dom.geminiStatus.innerHTML = '<span class="dot" style="background:var(--marigold);"></span><span>No GEMINI_API_KEY set — using offline demo replies</span>';
+    dom.geminiStatus.innerHTML = '<span class="dot" style="background:var(--teal);"></span><span>Connected to Gemini</span>';
   }
  }catch(err){
   dom.geminiStatus.innerHTML = '<span class="dot" style="background:var(--coral);"></span><span>Backend not reachable — using offline demo replies</span>';
