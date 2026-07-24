@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compass — Saranathan Freshers Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-row">
+    <div class="brand"><span class="mark">SF</span><div><div>Compass<span style="color:var(--marigold)">.</span></div><div class="badge-line" data-i18n="tagline">Saranathan Freshers Hub</div></div></div>
+    <nav class="links" id="navLinks">
+      <button data-page="home" class="active" data-i18n="nav_home">Home</button>
+      <button data-page="events" data-i18n="nav_events">Events</button>
+      <button data-page="clubs" data-i18n="nav_clubs">Clubs</button>
+      <button data-page="faculty" data-i18n="nav_faculty">Faculty</button>
+      <button data-page="campus" data-i18n="nav_campus">Campus</button>
+      <button data-page="assistant" data-i18n="nav_assistant">Assistant</button>
+      <button data-page="resources" data-i18n="nav_resources">Resources</button>
+    </nav>
+    <div class="nav-right">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+        <input id="searchInput" type="text" placeholder="Search Compass..." data-i18n-ph="search_ph">
+        <div id="searchResults"></div>
+      </div>
+      <select class="lang" id="langSelect">
+        <option value="en">EN</option>
+        <option value="ta">தமிழ்</option>
+ 
+      </select>
+      <button class="btn btn-ghost" id="themeToggle" aria-label="Toggle theme" title="Toggle dark/light theme">🌙</button>
+      <button class="btn btn-ghost" id="navAuthBtn" data-i18n="nav_login">Log in</button>
+      <button class="hamburger" id="hamburger">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<section class="page active" id="page-home">
+  <div class="container hero">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow" data-i18n="hero_eyebrow">Orientation 2026 · Batch of Explorers</span>
+        <h1 data-i18n="hero_title">Find your way around <em>college</em>, before day one.</h1>
+        <p class="lead" data-i18n="hero_lead">Events, clubs, faculty and campus — explored freely as a guest. Sign in only when you want it to remember you.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary" onclick="navigate('campus')" data-i18n="hero_cta1">Explore campus</button>
+          <button class="btn btn-ghost" onclick="navigate('assistant')" data-i18n="hero_cta2">Ask the AI Assistant</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b class="counter" data-target="8">0</b><span data-i18n="stat_events">Live events</span></div>
+          <div class="stat"><b class="counter" data-target="12">0</b><span data-i18n="stat_clubs">Active clubs</span></div>
+          <div class="stat"><b class="counter" data-target="24">0</b><span data-i18n="stat_faculty">Faculty listed</span></div>
+          <div class="stat"><b class="counter" data-target="50">0</b><span data-i18n="stat_teams">Hackathon teams</span></div>
+        </div>
+      </div>
+      <div class="orbit-system">
+        <div class="orbit-center">
+          <span style="font-weight: bold; font-size: 12px; color: #fff;">You</span>
+          <span style="font-size: 8px; color: #ccfbf1; letter-spacing: 1px;">FRESHER MODE</span>
+        </div>
+        <div class="orbit-ring"></div>
+        <div class="orbit-nodes-container">
+          <div class="orbit-node node-1" onclick="navigate('events')">
+            <div class="orbit-node-inner">
+              <span>📅</span>
+              <span>Events</span>
+            </div>
+          </div>
+          <div class="orbit-node node-2" onclick="navigate('clubs')">
+            <div class="orbit-node-inner">
+              <span>🤍</span>
+              <span>Clubs</span>
+            </div>
+          </div>
+          <div class="orbit-node node-3" onclick="navigate('faculty')">
+            <div class="orbit-node-inner">
+              <span>📇</span>
+              <span>Faculty</span>
+            </div>
+          </div>
+          <div class="orbit-node node-4" onclick="navigate('campus')">
+            <div class="orbit-node-inner">
+              <span>🏢</span>
+              <span>Campus</span>
+            </div>
+          </div>
+          <div class="orbit-node node-5" onclick="navigate('assistant')">
+            <div class="orbit-node-inner">
+              <span>🏅</span>
+              <span>Assistant</span>
+            </div>
+          </div>
+          <div class="orbit-node node-6" onclick="navigate('resources')">
+            <div class="orbit-node-inner">
+              <span>📄</span>
+              <span>Resources</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="modes_eyebrow">Two ways in</span>
+      <h2 data-i18n="modes_title">Explore freely. Personalize if you want.</h2>
+      <p data-i18n="modes_desc">No account needed to look around — only for the things that need to remember you.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="tag" data-i18n="guest_tag">Guest Mode · Default</span>
+        <h3 data-i18n="guest_title">Look around, no strings attached</h3>
+        <p data-i18n="guest_desc">Browse every event, club, faculty profile and campus corner. Chat with the AI Assistant. Nothing is locked behind a login.</p>
+      </div>
+      <div class="card">
+        <span class="tag" style="color:var(--marigold)" data-i18n="student_tag">Student Mode · Optional</span>
+        <h3 data-i18n="student_title">Sign in when it gets personal</h3>
+        <p data-i18n="student_desc">Register for events, save favourite clubs, view your timetable and get notifications made for you.</p>
+      </div>
+      <div class="card">
+        <span class="tag" style="color:var(--sky)" data-i18n="ai_tag">Gemini-Powered</span>
+        <h3 data-i18n="ai_title">An assistant that knows the campus</h3>
+        <p data-i18n="ai_desc">Ask about timetables, clubs, registration deadlines or where the library is — in plain language, any time.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section" style="padding-top:0;">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="upcoming_eyebrow">Don't miss these</span>
+      <h2 data-i18n="upcoming_title">Coming up this orientation week</h2>
+    </div>
+    <div class="grid grid-3" id="homeEventsPreview"></div>
+  </div>
+</section>
+
+<!-- ============ EVENTS ============ -->
+<section class="page" id="page-events">
+  <div class="container section">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="events_eyebrow">What's on</span>
+      <h2 data-i18n="events_title">Campus events</h2>
+      <p data-i18n="events_desc">Browse freely. Registering saves your spot to your student dashboard.</p>
+    </div>
+    <div class="event-content">
+      <div class="event-main">
+        <div class="filter-row" id="eventFilters"></div>
+        <div class="grid grid-3" id="eventsGrid"></div>
+      </div>
+      <aside class="event-poster-panel top-panel">
+        <h3>Orientation Poster</h3>
+        <div class="event-poster-card">
+          <img src="cp.png" alt="Compass poster" onclick="navigate('poster')" style="cursor:pointer;" />
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POSTER VIEW ============ -->
+<section class="page" id="page-poster">
+  <div class="container section poster-page">
+    <div class="section-head">
+      <span class="eyebrow">Poster view</span>
+      <h2>Orientation poster</h2>
+      <p>Tap the image to see the poster alone on a dedicated page.</p>
+    </div>
+    <div class="poster-view-panel">
+      <button class="btn btn-ghost poster-back" onclick="navigate('events')">← Back to events</button>
+      <div class="poster-full-card">
+        <img src="cp.png" alt="Orientation poster full view" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLUBS ============ -->
+<section class="page" id="page-clubs">
+  <div class="container section">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="clubs_eyebrow">Find your people</span>
+      <h2 data-i18n="clubs_title">Clubs &amp; communities</h2>
+      <p data-i18n="clubs_desc">Twelve active clubs across tech, culture and sport. Tap ♥ to save your favourites once signed in.</p>
+    </div>
+    <div class="filter-row" id="clubFilters"></div>
+    <div class="grid grid-3" id="clubsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ FACULTY ============ -->
+<section class="page" id="page-faculty">
+  <div class="container section">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="faculty_eyebrow">Meet the department</span>
+      <h2 data-i18n="faculty_title">Faculty directory</h2>
+      <p data-i18n="faculty_desc">Office hours and contact details for your first point of academic contact.</p>
+    </div>
+    <div class="filter-row" id="facFilters"></div>
+    <div class="grid grid-3" id="facGrid"></div>
+  </div>
+</section>
+
+<!-- ============ CAMPUS ============ -->
+<section class="page" id="page-campus">
+  <div class="container section">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="campus_eyebrow">Get your bearings</span>
+      <h2 data-i18n="campus_title">Explore the campus</h2>
+      <p data-i18n="campus_desc">Tap a pin or a location card to see what happens there.</p>
+    </div>
+    <div class="campus-map">
+      <div class="map-canvas" id="mapCanvas">
+        <div class="map-placeholder">Google Map will load here after coordinates are provided.</div>
+      </div>
+      <div class="campus-list" id="campusList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASSISTANT ============ -->
+<section class="page" id="page-assistant">
+  <div class="container section" style="padding-bottom:0;">
+    <div class="section-head" style="margin-bottom:22px;">
+      <span class="eyebrow" data-i18n="assist_eyebrow">Available 24/7 · No login needed</span>
+      <h2 data-i18n="assist_title">AI Campus Assistant</h2>
+      <p data-i18n="assist_desc">Ask by typing or speaking — I'll answer in text and voice.</p>
+      <div id="geminiStatus" class="mode-pill" style="margin-top:12px;"><span class="dot"></span><span>Checking connection…</span></div>
+    </div>
+  </div>
+
+  <div class="va-shell">
+    <!-- Mobile drawer backdrop -->
+    <div class="va-backdrop" id="vaBackdrop"></div>
+
+    <!-- History panel (sidebar on desktop, drawer on mobile) -->
+    <aside class="va-history" id="vaHistoryPanel">
+      <div class="va-history-head">
+        <h3>History</h3>
+        <button class="va-icon-btn" id="vaCloseDrawer" aria-label="Close history">✕</button>
+      </div>
+      <button class="btn btn-primary va-new-chat" id="vaNewChat">+ New conversation</button>
+      <button class="va-delete-all" id="vaDeleteAll">🗑 Delete all history</button>
+      <div class="va-history-list" id="vaHistoryList"></div>
+    </aside>
+
+    <!-- Main chat column -->
+    <div class="va-main">
+      <div class="va-topbar">
+        <button class="va-icon-btn va-drawer-toggle" id="vaOpenDrawer" aria-label="Open history">☰</button>
+        <div class="va-lang-chips" id="vaLangChips">
+          <button class="va-chip active" data-lang="en">🇬🇧 English</button>
+          <button class="va-chip" data-lang="ta">🇮🇳 தமிழ்</button>
+        </div>
+        <div class="va-status-pill" id="vaStatusPill">
+          <span class="va-status-dot"></span><span id="vaStatusText">Ready</span>
+          <span class="va-waveform" id="vaWaveform"><span></span><span></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+
+      <div class="va-messages" id="vaMessages"></div>
+
+      <div class="va-suggestions" id="vaSuggestions"></div>
+
+      <div class="va-controls">
+        <button class="va-mic" id="vaMicBtn" aria-label="Speak">
+          <span class="va-mic-rings"><span></span><span></span><span></span></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </button>
+        <div class="va-input-row">
+          <input id="vaTextInput" type="text" placeholder="Type, or tap the mic to speak...">
+          <button class="btn btn-primary" id="vaSendBtn">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESOURCES ============ -->
+<section class="page" id="page-resources">
+  <div class="container section">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="res_eyebrow">Bookmark these</span>
+      <h2 data-i18n="res_title">Resources</h2>
+      <p data-i18n="res_desc">Handbooks, calendars and guides every fresher should have on hand.</p>
+    </div>
+    <div class="grid grid-3" id="resGrid"></div>
+  </div>
+</section>
+
+<!-- RESOURCE PREVIEW MODAL -->
+<div class="modal-backdrop" id="resourcePreview" onclick="closeResourcePreview()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeResourcePreview()">✕</button>
+    <h3 id="resourcePreviewTitle">Preview</h3>
+    <div id="resourcePreviewContent" style="margin-top:18px;"></div>
+    <a id="resourcePreviewDownload" class="btn btn-primary" style="margin-top:18px; display:none;" download>Download</a>
+  </div>
+</div>
+
+<!-- ============ DASHBOARD (student only) ============ -->
+<section class="page" id="page-dashboard">
+  <div class="container section">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="dash_eyebrow">Personal · Private to you</span>
+      <h2 data-i18n="dash_title">Your dashboard</h2>
+    </div>
+    <div class="dash-grid">
+      
+      <!-- LEFT SIDEBAR CONTAINER -->
+      <div class="dash-sidebar">
+        <div class="profile-card">
+          <div class="profile-avatar" id="dashAvatar">?</div>
+          <h3 id="dashName">—</h3>
+          <p style="color:var(--cream-dim); font-size:0.82rem; margin-top:4px;" id="dashMeta">—</p>
+          <button class="btn btn-ghost" style="width:100%; margin-top:16px;" onclick="openProfileEdit()" data-i18n="dash_edit">Edit profile</button>
+          <button class="btn btn-ghost" style="width:100%; margin-top:8px; border-color:var(--coral); color:var(--coral);" onclick="logout()" data-i18n="dash_logout">Log out</button>
+        </div>
+
+        <!-- SIDEBAR DYNAMIC CALENDAR CARD -->
+        <div class="sidebar-calendar-card">
+          <div class="calendar-header">
+            <h3 id="calendar-month-year">July 2026</h3>
+            <div class="calendar-nav">
+              <span id="prev-month">&lt;</span>
+              <span id="next-month">&gt;</span>
+            </div>
+          </div>
+          <div class="calendar-grid">
+            <div class="day-name">Su</div>
+            <div class="day-name">Mo</div>
+            <div class="day-name">Tu</div>
+            <div class="day-name">We</div>
+            <div class="day-name">Th</div>
+            <div class="day-name">Fr</div>
+            <div class="day-name">Sa</div>
+          </div>
+          <div class="calendar-days" id="calendar-days-container"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL CONTENT -->
+      <div class="dash-panels">
+        <div class="panel">
+          <h3><span data-i18n="dash_notif">Notifications</span></h3>
+          <div id="dashNotifs"></div>
+        </div>
+        <div class="panel">
+          <h3><span data-i18n="dash_events">Registered events</span></h3>
+          <div id="dashEvents"></div>
+        </div>
+        <div class="panel">
+          <h3><span data-i18n="dash_clubs">Favourite clubs</span></h3>
+          <div id="dashClubs"></div>
+        </div>
+        <div class="panel">
+          <h3><span data-i18n="dash_tt">Your timetable</span></h3>
+          <div style="overflow-x:auto;"><table class="tt-table" id="ttTable"></table></div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+<div id="toastWrap"></div>
+
+<!-- AUTH MODAL -->
+<div class="modal-backdrop" id="authModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('authModal')">✕</button>
+    <div class="tab-switch">
+      <button id="tabLogin" class="active" onclick="switchAuthTab('login')" data-i18n="tab_login">Log in</button>
+      <button id="tabRegister" onclick="switchAuthTab('register')" data-i18n="tab_register">Register</button>
+    </div>
+    <h2 id="authTitle" data-i18n="auth_login_title">Welcome back</h2>
+    <p class="sub" id="authSub" data-i18n="auth_login_sub">Log in to pick up where you left off.</p>
+    <form id="authForm" onsubmit="return handleAuthSubmit(event)">
+      <div class="field" id="fieldName" style="display:none;">
+        <label data-i18n="field_name">Full name</label>
+        <input type="text" id="authName" placeholder="e.g. Priya Raman">
+      </div>
+      <div class="form-grid" id="fieldDeptYear" style="display:none; gap:12px; margin-top:12px;">
+        <div class="field" id="fieldDept">
+          <label data-i18n="field_dept">Department</label>
+          <select id="authDept">
+            <option>CSE</option><option>ECE</option><option>EEE</option><option>Mech</option><option>Civil</option><option>IT</option><option>AIML</option>
+          </select>
+        </div>
+        <div class="field" id="fieldYear">
+          <label data-i18n="field_year">Year</label>
+          <select id="authYear">
+            <option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option>
+          </select>
+        </div>
+      </div>
+      <div class="field" id="fieldPhone" style="display:none; margin-top:12px;">
+        <label data-i18n="field_phone">Phone</label>
+        <input type="text" id="authPhone" placeholder="10-digit number">
+      </div>
+      <div class="field">
+        <label data-i18n="field_email">College email</label>
+        <input type="email" id="authEmail" required placeholder="you@saranathan.ac.in">
+      </div>
+      <div class="field">
+        <label data-i18n="field_pass">Password</label>
+        <input type="password" id="authPass" required placeholder="••••••••" minlength="4">
+      </div>
+      <button class="btn btn-primary" style="width:100%; margin-top:6px;" type="submit" id="authSubmitBtn" data-i18n="auth_login_btn">Log in</button>
+    </form>
+    <p class="note" data-i18n="auth_note">Demo authentication for this hackathon build — details are stored only to power your dashboard, not verified against real college records.</p>
+  </div>
+</div>
+
+<!-- PROFILE EDIT MODAL -->
+<div class="modal-backdrop" id="profileModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('profileModal')">✕</button>
+    <h2 data-i18n="profile_title">Edit profile</h2>
+    <p class="sub" data-i18n="profile_sub">Kept up to date, kept private to you.</p>
+    <form onsubmit="return saveProfile(event)">
+      <div class="field" style="margin-bottom:14px;">
+        <label data-i18n="field_name">Full name</label>
+        <input type="text" id="profName">
+      </div>
+      <div class="form-grid">
+        <div class="field">
+          <label data-i18n="field_dept">Department</label>
+          <select id="profDept">
+            <option>CSE</option><option>ECE</option><option>EEE</option><option>Mech</option><option>Civil</option><option>IT</option><option>AIML</option>
+          </select>
+        </div>
+        <div class="field">
+          <label data-i18n="field_year">Year</label>
+          <select id="profYear">
+            <option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option>
+          </select>
+        </div>
+      </div>
+      <div class="field" style="margin-top:14px;">
+        <label data-i18n="field_phone">Phone</label>
+        <input type="text" id="profPhone" placeholder="10-digit number">
+      </div>
+      <button class="btn btn-primary" style="width:100%; margin-top:20px;" type="submit" data-i18n="profile_save">Save changes</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="container footer-row">
+    <div>
+      <div class="brand" style="font-size:1rem; margin-bottom:8px;"><span class="mark" style="width:26px;height:26px;font-size:0.7rem;">SF</span> Compass</div>
+      <div data-i18n="footer_by">Built by the Google Student Ambassador Team, Saranathan College of Engineering.</div>
+    </div>
+    <div class="mode-pill"><span class="dot" id="footerModeDot"></span><span id="footerModeText" data-i18n="footer_guest">Browsing as Guest</span></div>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="assistant.js"></script>
+</body>
+</html>
